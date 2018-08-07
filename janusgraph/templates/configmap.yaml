@@ -1,4 +1,3 @@
-{{- if (empty .Values.configMapOverrideName) -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -6,17 +5,9 @@ metadata:
 data:
   janusgraph.properties: |-
     gremlin.graph=org.janusgraph.core.JanusGraphFactory
-
-    {{- $eshostname := (index .Values.properties "index.search.hostname") | default (printf "%s-elasticsearch-client" .Release.Name | trunc 63 | trimSuffix "-")}}
-    {{- range $key, $val := .Values.properties }}
-    {{- if ne $key "index.search.hostname" }}
-    {{ $key }}={{ $val }}
-    {{- end -}}
-    {{ end }}
-
-    {{- if eq (index .Values.properties "index.search.backend") "elasticsearch" "es"}}
-    index.search.hostname={{ $eshostname }}
-    {{- end }}
+    storage.backend=cassandra
+    index.search.backend=elasticsearch
+    index.search.hostname={{ printf "%s-elasticsearch-client" .Release.Name | trunc 63 | trimSuffix "-" }}
   gremlin-server.yaml: |-
     host: 0.0.0.0
     port: 8182
@@ -57,4 +48,3 @@ data:
     resultIterationBatchSize: 64
     writeBufferLowWaterMark: 32768
     writeBufferHighWaterMark: 65536
-    {{- end -}}

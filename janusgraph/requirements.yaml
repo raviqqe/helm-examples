@@ -3,3 +3,6 @@ dependencies:
     version: 0.4.7
     repository: https://kubernetes-charts-incubator.storage.googleapis.com
     condition: elasticsearch.deploy
+  - name: cassandra
+    version: 0.4.1
+    repository: https://kubernetes-charts-incubator.storage.googleapis.com

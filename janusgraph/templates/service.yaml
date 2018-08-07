@@ -7,10 +7,6 @@ metadata:
     chart: {{ template "janusgraph.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
-{{- if .Values.service.serviceAnnotations }}
-  annotations:
-{{ toYaml .Values.service.serviceAnnotations | indent 4 }}
-{{- end }}
 
 spec:
   type: {{ .Values.service.type }}

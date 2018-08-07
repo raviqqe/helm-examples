@@ -11,14 +11,6 @@ service:
   type: ClusterIP
   port: 8182
 
-## This chart can deploy the Elasticsearch as a dependency.
-## Use this section to provide elasticsearch chart specific values
-elasticsearch:
-  deploy: false  # change to true if you want to deploy Elasticsearch as a requirement along with this chart
-  rbac:
-    create: true  # required for kubernetes >1.7
-
-
 properties:
   ## use this section to add or adjust JanusGraph properties as needed
   ## all uncommented values in this section will be placed in the janusgraph.properties file

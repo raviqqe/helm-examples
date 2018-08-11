@@ -6,8 +6,8 @@ data:
   janusgraph.properties: |-
     gremlin.graph=org.janusgraph.core.JanusGraphFactory
     storage.backend=cassandra
-    index.search.backend=elasticsearch
-    index.search.hostname={{ printf "%s-elasticsearch-client" .Release.Name | trunc 63 | trimSuffix "-" }}
+    index.default.backend=elasticsearch
+    index.default.hostname={{ printf "%s-elasticsearch-client" .Release.Name | trunc 63 | trimSuffix "-" }}
   gremlin-server.yaml: |-
     host: 0.0.0.0
     port: 8182

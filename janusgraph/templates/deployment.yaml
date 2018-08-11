@@ -44,9 +44,4 @@ spec:
           configMap:
             name: {{ .Values.configMapOverrideName | default ( printf "%s-config" .Release.Name ) }}
         - name: local-db
-        {{- if .Values.persistence.enabled }}
-          persistentVolumeClaim:
-            claimName: {{ .Values.persistence.existingClaim | default (include "janusgraph.fullname" .) }}
-        {{- else }}
           emptyDir: {}
-        {{- end -}}

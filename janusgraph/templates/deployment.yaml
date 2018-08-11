@@ -40,6 +40,6 @@ spec:
       volumes:
         - name: janusgraph-config
           configMap:
-            name: {{ printf "%s-config" .Release.Name }}
+            name: {{ .Release.Name }}-config
         - name: local-db
           emptyDir: {}

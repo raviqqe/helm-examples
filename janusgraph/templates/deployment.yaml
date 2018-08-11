@@ -42,6 +42,6 @@ spec:
       volumes:
         - name: janusgraph-config
           configMap:
-            name: {{ .Values.configMapOverrideName | default ( printf "%s-config" .Release.Name ) }}
+            name: {{ printf "%s-config" .Release.Name }}
         - name: local-db
           emptyDir: {}

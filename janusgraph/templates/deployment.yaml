@@ -29,8 +29,6 @@ spec:
           volumeMounts:
             - name: janusgraph-config
               mountPath: /janusgraph-config
-            - name: local-db
-              mountPath: {{ .Values.persistence.path }}
           livenessProbe:
             exec:
               command:
@@ -41,5 +39,3 @@ spec:
         - name: janusgraph-config
           configMap:
             name: {{ .Release.Name }}-config
-        - name: local-db
-          emptyDir: {}

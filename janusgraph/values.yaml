@@ -10,3 +10,9 @@ resources: {}
 service:
   type: ClusterIP
   port: 8182
+
+cassandra:
+  resources:
+    requests:
+      cpu: 0.5
+      memory: 2Gi

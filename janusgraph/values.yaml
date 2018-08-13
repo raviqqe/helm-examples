@@ -11,6 +11,10 @@ service:
   type: ClusterIP
   port: 8182
 
+elasticsearch:
+  rbac:
+    create: true
+
 cassandra:
   resources:
     requests:

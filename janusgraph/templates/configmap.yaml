@@ -4,10 +4,11 @@ metadata:
   name: {{ .Release.Name }}-config
 data:
   janusgraph.properties: |-
-    storage.backend=cassandra
+    gremlin.graph=org.janusgraph.core.JanusGraphFactory
+    storage.backend=cql
     storage.hostname={{ printf "%s-cassandra" .Release.Name | trunc 63 | trimSuffix "-" }}
-    index.default.backend=elasticsearch
-    index.default.hostname={{ printf "%s-elasticsearch-client" .Release.Name | trunc 63 | trimSuffix "-" }}
+    index.search.backend=elasticsearch
+    index.search.hostname={{ printf "%s-elasticsearch-client" .Release.Name | trunc 63 | trimSuffix "-" }}
   gremlin-server.yaml: |-
     host: 0.0.0.0
     port: 8182

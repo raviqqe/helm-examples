@@ -3,7 +3,8 @@ image:
   tag: v2
   pullPolicy: IfNotPresent
 
-replicas: 2
+minReplicas: 2
+maxReplicas: 64
 
 resources: {}
 

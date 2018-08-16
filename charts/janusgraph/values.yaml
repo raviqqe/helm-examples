@@ -13,6 +13,8 @@ service:
   port: 8182
 
 elasticsearch:
+  data:
+    terminationGracePeriodSeconds: 60
   rbac:
     create: true
 
